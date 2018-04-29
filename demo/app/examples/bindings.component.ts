@@ -6,9 +6,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     template: `
         <label>Bind to default <b>label</b>, <b>object</b> bindings</label>
         ---html,true
-        <ng-select [items]="defaultBindingsList"
+        <select-guru [items]="defaultBindingsList"
                    [(ngModel)]="selectedCity">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected city object: {{selectedCity | json}}
@@ -16,12 +16,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <hr>
         <label>Bind label to nested custom property</label>
         ---html,true
-        <ng-select [items]="countries"
+        <select-guru [items]="countries"
                    bindLabel="nested.name"
                    bindValue="nested.countryId"
                    placeholder="Select value"
                    [(ngModel)]="selectedCountryId">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected country ID: {{selectedCountryId}}
@@ -29,11 +29,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <hr>
         <label>Bind label and model to custom properties</label>
         ---html,true
-        <ng-select [items]="cities"
+        <select-guru [items]="cities"
                    bindLabel="name"
                    bindValue="id"
                    [(ngModel)]="selectedCityId">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected city ID: {{selectedCityId | json}}

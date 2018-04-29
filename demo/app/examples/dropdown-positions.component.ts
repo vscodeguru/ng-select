@@ -9,8 +9,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         </p>
 
         ---html,true
-        <ng-select [items]="cities">
-        </ng-select>
+        <select-guru [items]="cities">
+        </select-guru>
         ---
         <hr>
         <p>
@@ -18,10 +18,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         </p>
 
         ---html,true
-        <ng-select [dropdownPosition]="'top'"
+        <select-guru [dropdownPosition]="'top'"
                    [searchable]="false"
                    [items]="cities">
-        </ng-select>
+        </select-guru>
         ---
     `
 })

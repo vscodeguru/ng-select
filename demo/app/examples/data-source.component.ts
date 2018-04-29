@@ -18,11 +18,11 @@ import { Observable } from 'rxjs/Observable';
         }
         ---
         ---html,true
-        <ng-select [items]="people$ | async"
+        <select-guru [items]="people$ | async"
                    bindLabel="name"
                    bindValue="id"
                    [(ngModel)]="selectedPersonId">
-        </ng-select>
+        </select-guru>
         ---
         <br />Selected: {{selectedPersonId}}
 
@@ -39,11 +39,11 @@ import { Observable } from 'rxjs/Observable';
         }
         ---
         ---html,true
-        <ng-select [items]="people"
+        <select-guru [items]="people"
                    bindLabel="name"
                    bindValue="id"
                    [(ngModel)]="selectedPersonId2">
-        </ng-select>
+        </select-guru>
         ---
         <br />Selected: {{selectedPersonId2}}
 
@@ -55,9 +55,9 @@ import { Observable } from 'rxjs/Observable';
         items = [true, 'Two', 3];
         ---
         ---html,true
-        <ng-select [items]="simpleItems"
+        <select-guru [items]="simpleItems"
                    [(ngModel)]="selectedSimpleItem">
-        </ng-select>
+        </select-guru>
         ---
         <br />Selected: {{selectedSimpleItem | json}}
 
@@ -68,10 +68,10 @@ import { Observable } from 'rxjs/Observable';
         <button type="button" class="btn btn-secondary btn-sm" (click)="toggleDisabled()">Toggle disabled</button>
         <hr/>
         ---html,true
-        <ng-select [(ngModel)]="selectedCarId">
+        <select-guru [(ngModel)]="selectedCarId">
             <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled" >{{car.name}}</ng-option>
             <ng-option [value]="'custom'">Custom</ng-option>
-        </ng-select>
+        </select-guru>
         ---
         <br />Selected car ID: {{selectedCarId | json}}
     `

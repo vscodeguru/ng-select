@@ -9,25 +9,25 @@ import { DataService } from '../shared/data.service';
        <p>If you place ng-select to container with fixed height and hidden overflow then dropdown will not be fully visible.</p>
         ---html,true
         <div class="overflow-box">
-            <ng-select [items]="people | async"
+            <select-guru [items]="people | async"
                 bindLabel="company"
                 placeholder="Select item"
                 [(ngModel)]="selected">
-            </ng-select>
+            </select-guru>
         </div>
         ---
 
         <p>It can be fixed by appending dropdown to body or other parent element.</p>
         ---html,true
         <div class="overflow-box">
-            <ng-select [items]="people | async"
+            <select-guru [items]="people | async"
                 bindLabel="company"
                 placeholder="Select item"
                 appendTo="body"
                 multiple="true"
                 [closeOnSelect]="false"
                 [(ngModel)]="selected2">
-            </ng-select>
+            </select-guru>
         </div>
         ---
     `,

@@ -7,14 +7,14 @@ import { DataService } from '../shared/data.service';
     template: `
         <label>Select multiple elements</label>
         ---html,true
-        <ng-select
+        <select-guru
                 [items]="people$1 | async"
                 [multiple]="true"
                 [closeOnSelect]="false"
                 bindLabel="name"
                 placeholder="Select people"
                 [(ngModel)]="selectedPeople1">
-        </ng-select>
+        </select-guru>
         ---
         <div class="mt-3">
             Selected value: <br />
@@ -28,7 +28,7 @@ import { DataService } from '../shared/data.service';
 
         <label>Hide selected elements</label>
         ---html,true
-        <ng-select
+        <select-guru
                 [items]="people$1 | async"
                 [multiple]="true"
                 [closeOnSelect]="false"
@@ -36,19 +36,19 @@ import { DataService } from '../shared/data.service';
                 bindLabel="name"
                 placeholder="Select people"
                 [(ngModel)]="selectedPeople4">
-        </ng-select>
+        </select-guru>
         ---
         <hr/>
 
         <label>Select multiple elements with a limit number of selections (e.g 3)</label>
         ---html,true
-        <ng-select
+        <select-guru
                 [items]="people$2 | async"
                 [multiple]="true"
                 [maxSelectedItems]="3"
                 bindLabel="name"
                 [(ngModel)]="selectedPeople2">
-        </ng-select>
+        </select-guru>
         ---
         <div class="mt-3">
             Selected value: <br />
@@ -61,20 +61,20 @@ import { DataService } from '../shared/data.service';
 
         <label>Disabled multiple elements</label>
         ---html,true
-        <ng-select
+        <select-guru
                 [items]="people$3 | async"
                 bindLabel="name"
                 [multiple]="true"
                 [disabled]="disable"
                 [(ngModel)]="selectedPeople3">
-        </ng-select>
+        </select-guru>
         ---
         <br>
         <button class="btn btn-secondary btn-sm" (click)="disable = !disable">Toggle disabled</button>
         <hr/>
         <label>Custom template for each selected item</label>
         ---html,true
-        <ng-select
+        <select-guru
             [items]="githubUsers$ | async"
             [multiple]="true"
             bindLabel="login"
@@ -88,13 +88,13 @@ import { DataService } from '../shared/data.service';
             <ng-template ng-option-tmp let-item="item">
                 <img [src]="item.avatar_url" width="20px" height="20px"> {{item.login}}
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <hr/>
 
         <label>Custom template for all selected items</label>
         ---html,true
-        <ng-select
+        <select-guru
             [items]="githubUsers$ | async"
             [multiple]="true"
             bindLabel="login"
@@ -109,7 +109,7 @@ import { DataService } from '../shared/data.service';
                     <span class="ng-value-label">{{items.length - 2}} more...</span>
                 </div>
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
     `
 })

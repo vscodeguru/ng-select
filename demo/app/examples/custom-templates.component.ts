@@ -9,12 +9,12 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
     template: `
         <label>Custom label</label>
         ---html,true
-        <ng-select [items]="cities" [(ngModel)]="selectedCity" bindLabel="name" bindValue="name">
+        <select-guru [items]="cities" [(ngModel)]="selectedCity" bindLabel="name" bindValue="name">
             <ng-template ng-label-tmp let-item="item">
                 <img height="15" width="15" [src]="item.avatar"/>
                 {{item.name}}
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected city name: {{selectedCity}}
@@ -23,7 +23,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
 
         <label>Custom option</label>
         ---html,true
-        <ng-select [items]="cities2" [(ngModel)]="selectedCity2" bindLabel="name" bindValue="name">
+        <select-guru [items]="cities2" [(ngModel)]="selectedCity2" bindLabel="name" bindValue="name">
             <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
                 <div *ngIf="item.name === 'Kaunas'">{{item.name}}</div>
                 <div class="card" *ngIf="item.name !== 'Kaunas'">
@@ -41,7 +41,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
                     </div>
                 </div>
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected city name: {{selectedCity2}}
@@ -50,7 +50,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
 
         <label>Custom label option and optgroup</label>
         ---html,true
-        <ng-select [items]="cities3" groupBy="avatar" [(ngModel)]="selectedCity3" bindLabel="name" bindValue="name">
+        <select-guru [items]="cities3" groupBy="avatar" [(ngModel)]="selectedCity3" bindLabel="name" bindValue="name">
             <ng-template ng-label-tmp let-item="item">
                 <img height="15" width="15" [src]="item.avatar"/>
                 <b>{{item.name}}</b>
@@ -61,7 +61,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
             <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
                 <b [ngOptionHighlight]="search">{{item.name}}</b>
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected city name: {{selectedCity3}}
@@ -70,7 +70,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
 
         <label>Custom header and footer</label>
         ---html,true
-        <ng-select
+        <select-guru
             [multiple]="true"
             [items]="people"
             [(ngModel)]="selectedPeople"
@@ -84,7 +84,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
             <ng-template ng-footer-tmp>
                 Selected count: {{selectedPeople.length}}
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected people: {{selectedPeople}}
@@ -92,7 +92,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
 
         <label>Custom not found, type to search and loading </label>
         ---html,true
-        <ng-select
+        <select-guru
             [multiple]="true"
             [items]="serverSideFilterItems"
             [(ngModel)]="selectedPeople"
@@ -115,7 +115,7 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
                     Fetching data for "{{searchTerm}}"
                 </div>
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected people: {{selectedPeople}}
@@ -125,11 +125,11 @@ import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators'
 
         <label>Custom search</label>
         ---html,true
-        <ng-select #api [items]="cities" [searchable]="false" [(ngModel)]="selectedCity" bindLabel="name" bindValue="name">
+        <select-guru #api [items]="cities" [searchable]="false" [(ngModel)]="selectedCity" bindLabel="name" bindValue="name">
             <ng-template ng-header-tmp>
                 <input style="width: 100%" type="text" (input)="api.filter($event.target.value)" />
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
     `
 })

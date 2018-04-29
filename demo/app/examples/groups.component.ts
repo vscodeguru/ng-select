@@ -10,13 +10,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
         <label>Default group by key</label>
         ---html,true
-        <ng-select [items]="accounts"
+        <select-guru [items]="accounts"
                 bindLabel="name"
                 bindValue="name"
                 groupBy="country"
                 [multiple]="true"
                 [(ngModel)]="selectedAccount">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             <small>Selected: {{selectedAccount | json}}</small>
@@ -24,13 +24,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
         <label>Group by function expression</label>
         ---html,true
-        <ng-select [items]="accounts2"
+        <select-guru [items]="accounts2"
                 bindLabel="name"
                 bindValue="name"
                 [groupBy]="groupByFn"
                 [multiple]="true"
                 [(ngModel)]="selectedAccount2">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             <small>Selected: {{selectedAccount2 | json}}</small>
@@ -39,12 +39,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <hr />
         <label>With selectable groups</label>
         ---html,true
-        <ng-select [items]="accounts3"
+        <select-guru [items]="accounts3"
                 bindLabel="name"
                 groupBy="country"
                 [selectableGroup]="true"
                 [(ngModel)]="selectedAccount3">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             <small>Selected: {{selectedAccount3 | json}}</small>

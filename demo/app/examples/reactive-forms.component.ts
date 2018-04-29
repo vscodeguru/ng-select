@@ -12,44 +12,44 @@ import { delay } from 'rxjs/operators';
     template: `
         <form [formGroup]="heroForm" novalidate>
             ---html
-            <ng-select [searchable]="false" formControlName="agree">
+            <select-guru [searchable]="false" formControlName="agree">
                 <ng-option [value]="true">Yes</ng-option>
                 <ng-option [value]="false">No</ng-option>
-            </ng-select>
+            </select-guru>
             ---
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="yesno">Not searchable</label>
-                    <ng-select #agreeSelect [searchable]="false" formControlName="agree">
+                    <select-guru #agreeSelect [searchable]="false" formControlName="agree">
                         <ng-option [value]="true">Yes</ng-option>
                         <ng-option [value]="false">No</ng-option>
-                    </ng-select>
+                    </select-guru>
                     <br />
                     <button (click)="agreeSelect.focus()" class="btn btn-sm btn-secondary">Focus select</button>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="heroId">Basic select</label>
-                    <ng-select [searchable]="false" formControlName="heroId">
+                    <select-guru [searchable]="false" formControlName="heroId">
                         <ng-template ng-label-tmp let-item="item" let-label="label">
                             <img src="{{basePath}}/assets/{{item}}.png" width="20px" height="20px" /> {{label}}
                         </ng-template>
                         <ng-option value="batman">Batman</ng-option>
                         <ng-option value="spidey">Spider-Man</ng-option>
                         <ng-option value="thor">Thor</ng-option>
-                    </ng-select>
+                    </select-guru>
                 </div>
             </div>
             <hr>
             <div class="form-group">
                 <label for="state">Single select</label>
                 ---html,true
-                <ng-select #agesSelect [items]="ages"
+                <select-guru #agesSelect [items]="ages"
                         [selectOnTab]="true"
                         bindValue="value"
                         (ngModelChange)="showConfirm()"
                         placeholder="Select age"
                         formControlName="age">
-                </ng-select>
+                </select-guru>
                 ---
                 <small class="form-text text-muted">With required validation</small>
                 <br>
@@ -60,7 +60,7 @@ import { delay } from 'rxjs/operators';
             <div class="form-group">
                 <label for="state">Multi select</label>
                 ---html,true
-                <ng-select *ngIf="isCitiesControlVisible"
+                <select-guru *ngIf="isCitiesControlVisible"
                            [items]="cities"
                            bindLabel="name"
                            bindValue="id"
@@ -68,7 +68,7 @@ import { delay } from 'rxjs/operators';
                            placeholder="Select cities"
                            clearAllText="Clear"
                            formControlName="selectedCitiesIds">
-                </ng-select>
+                </select-guru>
                 ---
                 <br>
                 <button (click)="toggleCitiesControl()" class="btn btn-sm btn-secondary">Show/Hide</button>
@@ -78,7 +78,7 @@ import { delay } from 'rxjs/operators';
 
             <div class="form-group">
                 <label for="album">Loading async data</label>
-                <ng-select [items]="albums"
+                <select-guru [items]="albums"
                            #select
                            bindLabel="title"
                            dropdownPosition="auto"
@@ -90,7 +90,7 @@ import { delay } from 'rxjs/operators';
                         <div><span>Title: </span><span [ngOptionHighlight]="search">{{item.title}}</span></div>
                         <small><b>Id:</b> {{item.id}} | <b>UserId:</b> {{item.userId}}</small>
                     </ng-template>
-                </ng-select>
+                </select-guru>
                 <small class="form-text text-muted">Albums data from backend using HttpClient.</small>
                 <br>
                 <button class="btn btn-secondary btn-sm" (click)="selectFirstAlbum()">Select first album</button>
@@ -103,7 +103,7 @@ import { delay } from 'rxjs/operators';
 
             <div class="form-group">
                 <label for="album">Custom templates</label>
-                <ng-select [items]="photos"
+                <select-guru [items]="photos"
                            bindLabel="title"
                            bindValue="thumbnailUrl"
                            placeholder="Select photo"
@@ -117,7 +117,7 @@ import { delay } from 'rxjs/operators';
                         <img height="15" width="15" [src]="item.thumbnailUrl"/>
                         <span [ngOptionHighlight]="search">{{item.title}}</span>
                     </ng-template>
-                </ng-select>
+                </select-guru>
                 <small class="form-text text-muted">5000 items with virtual scroll</small>
                 <br>
                 <button class="btn btn-secondary btn-sm" (click)="selectFirstPhoto()">Select first photo</button>
@@ -135,7 +135,7 @@ import { delay } from 'rxjs/operators';
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="album">Favorite photo</label>
-                        <ng-select [items]="photos"
+                        <select-guru [items]="photos"
                                    (change)="changePhoto($event)"
                                    bindLabel="title"
                                    bindValue="thumbnailUrl"
@@ -151,7 +151,7 @@ import { delay } from 'rxjs/operators';
                                 <img height="15" width="15" [src]="item.thumbnailUrl"/>
                                 <span>{{item.title}}</span>
                             </ng-template>
-                        </ng-select>
+                        </select-guru>
                     </div>
                 </div>
                 <div class="modal-footer">

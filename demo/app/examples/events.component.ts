@@ -12,7 +12,7 @@ interface AngSelectEvent {
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         ---html,true
-        <ng-select placeholder="Select some items"
+        <select-guru placeholder="Select some items"
                    [items]="items"
                    [(ngModel)]="selectedItems"
                    bindLabel="name"
@@ -27,7 +27,7 @@ interface AngSelectEvent {
                    (scrollToEnd)="onScrollToEnd($event)"
                    (remove)="onRemove($event)"
                    (change)="onChange($event)">
-        </ng-select>
+        </select-guru>
         ---
 
         <div *ngIf="events.length > 0">

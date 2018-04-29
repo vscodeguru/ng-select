@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
             This allows to load as big data as you want.
         </p>
         ---html,true
-        <ng-select [items]="photosBuffer"
+        <select-guru [items]="photosBuffer"
                    [virtualScroll]="true"
                    [loading]="loading"
                    bindLabel="title"
@@ -23,7 +23,7 @@ import { HttpClient } from '@angular/common/http';
             <ng-template ng-option-tmp let-item="item" let-index="index">
                 <b>{{index}}</b> {{item.title}}
             </ng-template>
-        </ng-select>
+        </select-guru>
         ---
     `
 })

@@ -6,11 +6,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     template: `
         <label>Default tags</label>
         ---html,true
-        <ng-select [items]="companies"
+        <select-guru [items]="companies"
                 [addTag]="true"
                 bindLabel="name"
                 [(ngModel)]="selectedCompany">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected value: {{selectedCompany | json}}
@@ -19,13 +19,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
         <label>Custom tags</label>
         ---html,true
-        <ng-select [items]="companies"
+        <select-guru [items]="companies"
                 [addTag]="addTag"
                 [hideSelected]="true"
                 multiple="true"
                 bindLabel="name"
                 [(ngModel)]="selectedCompanyCustom">
-        </ng-select>
+        </select-guru>
         ---
         <p>
             Selected value: {{selectedCompanyCustom | json}}
@@ -35,13 +35,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
         <label>Server side tags</label>
         ---html,true
-        <ng-select [items]="companies"
+        <select-guru [items]="companies"
                 [addTag]="addTagPromise"
                 multiple="true"
                 bindLabel="name"
                 [loading]="loading"
                 [(ngModel)]="selectedCompanyCustomPromise">
-        </ng-select>
+        </select-guru>
         ---
     `
 })

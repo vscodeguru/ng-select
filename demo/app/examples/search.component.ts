@@ -15,10 +15,10 @@ import { Subject } from 'rxjs/Subject';
             loading state manually if <b>[typeahead]</b> is not used.
         </p>
         ---html,true
-        <ng-select [items]="people"
+        <select-guru [items]="people"
                    bindLabel="name"
                    [loading]="peopleLoading">
-        </ng-select>
+        </select-guru>
         ---
         <br/>
 
@@ -27,7 +27,7 @@ import { Subject } from 'rxjs/Subject';
         <p>Use search term and filter on custom fields. Type <b>female</b> to see only females.</p>
 
         ---html,true
-        <ng-select [items]="people2"
+        <select-guru [items]="people2"
                    bindLabel="name"
                    [loading]="people2Loading"
                    [searchFn]="customSearchFn">
@@ -35,7 +35,7 @@ import { Subject } from 'rxjs/Subject';
                     {{item.name}} <br />
                     <small>{{item.gender}}</small>
                 </ng-template>
-        </ng-select>
+        </select-guru>
         ---
         <br/>
         
@@ -46,7 +46,7 @@ import { Subject } from 'rxjs/Subject';
         Loading state is automatically set when filter value changes.</p>
         <label>Multi select + Typeahead + Custom items (tags)</label>
         ---html,true
-        <ng-select [items]="people3"
+        <select-guru [items]="people3"
                    bindLabel="name"
                    [addTag]="true"
                    [multiple]="true"
@@ -54,7 +54,7 @@ import { Subject } from 'rxjs/Subject';
                    [loading]="people3Loading"
                    [typeahead]="people3Typeahead"
                    [(ngModel)]="selectedPersons">
-        </ng-select>
+        </select-guru>
         ---
         <p style="margin-bottom:300px">
             Selected persons: {{selectedPersons | json}}

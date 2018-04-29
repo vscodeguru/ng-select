@@ -56,7 +56,7 @@ export type AddTagFn = ((term: string) => any | Promise<any>);
 export type CompareWithFn = (a: any, b: any) => boolean;
 
 @Component({
-    selector: 'ng-select',
+    selector: 'select-guru',
     templateUrl: './ng-select.component.html',
     styleUrls: ['./ng-select.component.scss'],
     providers: [{
