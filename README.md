@@ -1,11 +1,17 @@
 
   
 
+  
+
 [![npm version](https://badge.fury.io/js/%40systemic%2Fselect-guru.svg)](https://badge.fury.io/js/%40systemic%2Fselect-guru)
 
   
 
+  
+
 [![gzip bundle size](http://img.badgesize.io/https://unpkg.com/@systemic/select-guru@latest/bundles/select-guru.umd.js?compression=gzip&style=flat-square)][select-guru-url]
+
+  
 
   
 
@@ -15,11 +21,17 @@
 
   
 
+  
+
 # Angular select-guru - Lightweight all in one UI Select, Multiselect and Autocomplete
 
   
 
-See Demos in [Stackblitz]([https://stackblitz.com/edit/select-guru](https://stackblitz.com/edit/select-guru))
+  
+
+See Demos in [Stackblitz](https://stackblitz.com/edit/select-guru)
+
+  
 
   
 
@@ -29,7 +41,11 @@ Table of contents
 
   
 
+  
+
 =================
+
+  
 
   
 
@@ -39,7 +55,11 @@ Table of contents
 
   
 
+  
+
 *  [Getting started](#getting-started)
+
+  
 
   
 
@@ -47,7 +67,11 @@ Table of contents
 
   
 
+  
+
 *  [Change detection](#change-detection)
+
+  
 
   
 
@@ -55,7 +79,11 @@ Table of contents
 
   
 
+  
+
 *  [Validation state](#validation-state)
+
+  
 
   
 
@@ -63,7 +91,11 @@ Table of contents
 
   
 
+  
+
 *  [Development](#development)
+
+  
 
   
 
@@ -73,7 +105,11 @@ Table of contents
 
   
 
+  
+
 ## Features
+
+  
 
   
 
@@ -81,7 +117,11 @@ Table of contents
 
   
 
+  
+
 - [x] Custom option, label, header and footer templates
+
+  
 
   
 
@@ -89,7 +129,11 @@ Table of contents
 
   
 
+  
+
 - [x] Infinite scroll
+
+  
 
   
 
@@ -97,7 +141,11 @@ Table of contents
 
   
 
+  
+
 - [x] Multiselect
+
+  
 
   
 
@@ -105,7 +153,11 @@ Table of contents
 
   
 
+  
+
 - [x] Custom search
+
+  
 
   
 
@@ -113,7 +165,11 @@ Table of contents
 
   
 
+  
+
 - [x] Append to
+
+  
 
   
 
@@ -121,7 +177,11 @@ Table of contents
 
   
 
+  
+
 - [x] Output events
+
+  
 
   
 
@@ -129,7 +189,11 @@ Table of contents
 
   
 
+  
+
 - [x] Good base functionality test coverage
+
+  
 
   
 
@@ -139,7 +203,11 @@ Table of contents
 
   
 
+  
+
 ## Warning
+
+  
 
   
 
@@ -149,7 +217,11 @@ Library is under active development and may have API breaking changes for subseq
 
   
 
+  
+
 ## Getting started
+
+  
 
   
 
@@ -159,11 +231,17 @@ Library is under active development and may have API breaking changes for subseq
 
   
 
+  
+
 #### NPM
 
   
 
+  
+
 ```shell
+
+  
 
   
 
@@ -171,7 +249,11 @@ npm install --save @systemic/select-guru
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -179,7 +261,11 @@ npm install --save @systemic/select-guru
 
   
 
+  
+
 ```shell
+
+  
 
   
 
@@ -187,7 +273,11 @@ yarn add @systemic/select-guru
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -195,11 +285,17 @@ yarn add @systemic/select-guru
 
   
 
+  
+
 ```js
 
   
 
+  
+
 import { SelectGuruModule } from  '@systemic/select-guru';
+
+  
 
   
 
@@ -209,7 +305,11 @@ import { FormsModule } from  '@angular/forms';
 
   
 
+  
+
 @NgModule({
+
+  
 
   
 
@@ -217,7 +317,11 @@ declarations: [AppComponent],
 
   
 
+  
+
 imports: [SelectGuruModule, FormsModule],
+
+  
 
   
 
@@ -225,7 +329,11 @@ bootstrap: [AppComponent]
 
   
 
+  
+
 })
+
+  
 
   
 
@@ -233,7 +341,11 @@ export  class  AppModule {}
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -243,7 +355,11 @@ export  class  AppModule {}
 
   
 
+  
+
 To allow customization and theming, `select-guru` bundle includes only generic styles that are necessary for correct layout and positioning. To get full look of the control, include one of the themes in your application. If you're using the Angular CLI, you can add this to your `styles.scss` or include it in `angular-cli.json`.
+
+  
 
   
 
@@ -253,11 +369,17 @@ To allow customization and theming, `select-guru` bundle includes only generic s
 
   
 
+  
+
 @import  "~@systemic/select-guru/themes/default.theme.css";
 
   
 
+  
+
 // ... or
+
+  
 
   
 
@@ -267,7 +389,11 @@ To allow customization and theming, `select-guru` bundle includes only generic s
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -277,7 +403,11 @@ To allow customization and theming, `select-guru` bundle includes only generic s
 
   
 
+  
+
 You can also set global configuration and localization messages by providing custom SELECT_GURU_DEFAULT_CONFIG
+
+  
 
   
 
@@ -285,7 +415,11 @@ You can also set global configuration and localization messages by providing cus
 
   
 
+  
+
 providers: [
+
+  
 
   
 
@@ -293,7 +427,11 @@ providers: [
 
   
 
+  
+
 provide:  SELECT_GURU_DEFAULT_CONFIG,
+
+  
 
   
 
@@ -301,15 +439,23 @@ useValue: {
 
   
 
+  
+
 notFoundText:  'Custom not found'
 
   
 
+  
+
 }
 
   
 
+  
+
 }
+
+  
 
   
 
@@ -317,11 +463,17 @@ notFoundText:  'Custom not found'
 
   
 
+  
+
 ```
 
   
 
+  
+
 ### SystemJS
+
+  
 
   
 
@@ -331,7 +483,11 @@ If you are using SystemJS, you should also adjust your configuration to point to
 
   
 
+  
+
 In your systemjs config file, `map` needs to tell the System loader where to look for `select-guru`:
+
+  
 
   
 
@@ -339,7 +495,11 @@ In your systemjs config file, `map` needs to tell the System loader where to loo
 
   
 
+  
+
 map: {
+
+  
 
   
 
@@ -347,7 +507,11 @@ map: {
 
   
 
+  
+
 }
+
+  
 
   
 
@@ -357,7 +521,11 @@ map: {
 
   
 
+  
+
 ## API
+
+  
 
   
 
@@ -365,7 +533,11 @@ map: {
 
   
 
+  
+
 | Input | Type | Default | Required | Description |
+
+  
 
   
 
@@ -373,7 +545,11 @@ map: {
 
   
 
+  
+
 | [addTag] | `boolean \| ((term: string) => any \| Promise<any>)` | `false` | no | Allows to create custom options. |
+
+  
 
   
 
@@ -381,7 +557,11 @@ map: {
 
   
 
+  
+
 | appendTo | `string` | null | no | Append dropdown to body or any other element using css selector |
+
+  
 
   
 
@@ -389,7 +569,11 @@ map: {
 
   
 
+  
+
 | bindLabel | `string` | `label` | no | Object property to use for label. Default `label` |
+
+  
 
   
 
@@ -397,7 +581,11 @@ map: {
 
   
 
+  
+
 | clearAllText | `string` | `Clear all` | no | Set custom text for clear all icon title |
+
+  
 
   
 
@@ -405,7 +593,11 @@ map: {
 
   
 
+  
+
 | [compareWith] | `(a: any, b: any) => boolean` | `(a, b) => a === b` | no | A function to compare the option values with the selected values |
+
+  
 
   
 
@@ -413,7 +605,11 @@ map: {
 
   
 
+  
+
 | [groupBy] | `string` \| `Function` | null | no | Allow to group items by key or function expression |
+
+  
 
   
 
@@ -421,7 +617,11 @@ map: {
 
   
 
+  
+
 | [items] | `Array<any>` | `[]` | yes | Items array |
+
+  
 
   
 
@@ -429,7 +629,11 @@ map: {
 
   
 
+  
+
 | loadingText | `string` | `Loading...` | no | Set custom text when for loading items |
+
+  
 
   
 
@@ -437,7 +641,11 @@ map: {
 
   
 
+  
+
 | maxSelectedItems | `number` | none | no | When multiple = true, allows to set a limit number of selection. |
+
+  
 
   
 
@@ -445,7 +653,11 @@ map: {
 
   
 
+  
+
 | multiple | `boolean` | `false` | no | Allows to select multiple items. |
+
+  
 
   
 
@@ -453,7 +665,11 @@ map: {
 
   
 
+  
+
 | placeholder | `string` | `-` | no | Placeholder text. |
+
+  
 
   
 
@@ -461,7 +677,11 @@ map: {
 
   
 
+  
+
 | [searchFn] | `(term: string, item: any) => boolean` | `null` | no | Allow to filter by custom search function |
+
+  
 
   
 
@@ -469,7 +689,11 @@ map: {
 
   
 
+  
+
 | [selectOnTab] | `boolean` | `false` | no | Select marked dropdown item using tab. Default `false`|
+
+  
 
   
 
@@ -477,11 +701,17 @@ map: {
 
   
 
+  
+
 | typeToSearchText | `string` | `Type to search` | no | Set custom text when using Typeahead |
 
   
 
+  
+
 | [virtualScroll] | `boolean` | false | no | Enable virtual scroll for better performance when rendering a lot of data |
+
+  
 
   
 
@@ -493,7 +723,11 @@ map: {
 
   
 
+  
+
 | Output | Description |
+
+  
 
   
 
@@ -501,7 +735,11 @@ map: {
 
   
 
+  
+
 | (add) | Fired when item is selected |
+
+  
 
   
 
@@ -509,7 +747,11 @@ map: {
 
   
 
+  
+
 | (change) | Fired on selected value change |
+
+  
 
   
 
@@ -517,7 +759,11 @@ map: {
 
   
 
+  
+
 | (clear) | Fired on clear icon click |
+
+  
 
   
 
@@ -525,11 +771,17 @@ map: {
 
   
 
+  
+
 | (open) | Fired on select dropdown open |
 
   
 
+  
+
 | (remove) | Fired when item is removed |
+
+  
 
   
 
@@ -539,7 +791,11 @@ map: {
 
   
 
+  
+
 ### Methods
+
+  
 
   
 
@@ -547,7 +803,11 @@ Name | Description |
 
   
 
+  
+
 | ------------- | ------------- |
+
+  
 
   
 
@@ -555,7 +815,11 @@ Name | Description |
 
   
 
+  
+
 | close | Closes the select dropdown panel |
+
+  
 
   
 
@@ -565,7 +829,11 @@ Name | Description |
 
   
 
+  
+
 ### Other
+
+  
 
   
 
@@ -573,7 +841,11 @@ Name | Type | Description |
 
   
 
+  
+
 | ------------- | ------------- | ------------- |
+
+  
 
   
 
@@ -583,11 +855,17 @@ Name | Type | Description |
 
   
 
+  
+
 ## Change Detection
 
   
 
+  
+
 select-guru component implements `OnPush` change detection which means the dirty checking checks for immutable
+
+  
 
   
 
@@ -597,7 +875,11 @@ data types. That means if you do object mutations like:
 
   
 
+  
+
 ```javascript
+
+  
 
   
 
@@ -605,7 +887,11 @@ this.items.push({id:  1, name:  'New item'})
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -617,7 +903,11 @@ Component will not detect a change. Instead you need to do:
 
   
 
+  
+
 ```javascript
+
+  
 
   
 
@@ -625,7 +915,11 @@ this.items  = [...this.items, {id:  1, name:  'New item'}];
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -635,7 +929,11 @@ This will cause the component to detect the change and update. Some might have c
 
   
 
+  
+
 this is a pricey operation, however, it is much more performant than running `ngDoCheck` and
+
+  
 
   
 
@@ -645,7 +943,11 @@ constantly diffing the array.
 
   
 
+  
+
 ## Custom styles
+
+  
 
   
 
@@ -655,7 +957,11 @@ If you are not happy with default styles you can easily override them with incre
 
   
 
+  
+
 ```html
+
+  
 
   
 
@@ -663,7 +969,11 @@ If you are not happy with default styles you can easily override them with incre
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -673,7 +983,11 @@ If you are not happy with default styles you can easily override them with incre
 
   
 
+  
+
 .ng-select.custom {
+
+  
 
   
 
@@ -681,7 +995,11 @@ border:0px;
 
   
 
+  
+
 min-height:  0px;
+
+  
 
   
 
@@ -689,7 +1007,11 @@ border-radius:  0;
 
   
 
+  
+
 }
+
+  
 
   
 
@@ -697,7 +1019,11 @@ border-radius:  0;
 
   
 
+  
+
 min-height:  0px;
+
+  
 
   
 
@@ -705,11 +1031,17 @@ border-radius:  0;
 
   
 
+  
+
 }
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -719,7 +1051,11 @@ border-radius:  0;
 
   
 
+  
+
 By default when you use reactive forms validators or template driven forms validators css class `ng-invalid` will be applied on select-guru. You can show errors state by adding custom css style
+
+  
 
   
 
@@ -729,7 +1065,11 @@ By default when you use reactive forms validators or template driven forms valid
 
   
 
+  
+
 select-guru.ng-invalid.ng-touched  .ng-select-container {
+
+  
 
   
 
@@ -737,7 +1077,11 @@ border-color:  #dc3545;
 
   
 
+  
+
 box-shadow:  inset  0  1px  1px  rgba(0,  0,  0,  0.075),  0  0  0  3px  #fde6e8;
+
+  
 
   
 
@@ -745,7 +1089,11 @@ box-shadow:  inset  0  1px  1px  rgba(0,  0,  0,  0.075),  0  0  0  3px  #fde6e8
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -757,11 +1105,17 @@ box-shadow:  inset  0  1px  1px  rgba(0,  0,  0,  0.075),  0  0  0  3px  #fde6e8
 
   
 
+  
+
 Contributions are welcome. You can start by looking at [issues](https://github.com/vscodeguru/select-guru/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) with label *Help wanted* or creating new Issue with proposal or bug report.
 
   
 
+  
+
 Note that we are using https://conventionalcommits.org/ commits format.
+
+  
 
   
 
@@ -773,7 +1127,11 @@ Note that we are using https://conventionalcommits.org/ commits format.
 
   
 
+  
+
 Perform the _clone-to-launch_ steps with these terminal commands.
+
+  
 
   
 
@@ -783,7 +1141,11 @@ Perform the _clone-to-launch_ steps with these terminal commands.
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -791,7 +1153,11 @@ git clone https://github.com/vscodeguru/select-guru
 
   
 
+  
+
 cd select-guru
+
+  
 
   
 
@@ -799,11 +1165,17 @@ yarn
 
   
 
+  
+
 yarn run start
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -811,7 +1183,11 @@ yarn run start
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -819,7 +1195,11 @@ yarn run test
 
   
 
+  
+
 or
+
+  
 
   
 
@@ -827,7 +1207,11 @@ yarn run test:watch
 
   
 
+  
+
 ```
+
+  
 
   
 
@@ -839,13 +1223,19 @@ yarn run test:watch
 
   
 
+  
+
 To release to npm just run `./release.sh`, of course if you have permissions ;)
 
   
 
   
 
+  
+
 ## Inspiration
+
+  
 
   
 
