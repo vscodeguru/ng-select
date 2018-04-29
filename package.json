@@ -4,9 +4,10 @@
     "npm": ">= 3.0.0"
   },
   "scripts": {
+    "copy": "copyfiles -f README.md src",
     "clean": "rimraf out-tsc dist/* integration/node_modules/@ng-select",
     "prebuild": "yarn clean",
-    "build": "ng-packagr -p ./src/package.json && yarn build:themes",
+    "build": "npm run copy && ng-packagr -p ./src/package.json && yarn build:themes",
     "build:demo": "rimraf dist && webpack --config ./scripts/webpack.dev.js --progress --profile --bail",
     "build:themes": "node-sass --output-style compressed src/themes/ -o dist/themes",
     "prestart": "yarn install",
@@ -35,6 +36,7 @@
     "awesome-typescript-loader": "^3.2.3",
     "bootstrap": "^4.0.0",
     "copy-webpack-plugin": "^4.0.0",
+    "copyfiles": "^2.0.0",
     "core-js": "^2.5.0",
     "coveralls": "^2.13.1",
     "css-loader": "^0.26.1",
@@ -78,5 +80,7 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.1",
     "zone.js": "^0.8.26"
-  }
+  },
+  "readme": "README.md",
+  "dependencies": {}
 }
