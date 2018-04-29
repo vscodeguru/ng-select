@@ -19,8 +19,8 @@ import {
     OnChanges
 } from '@angular/core';
 
-import { NgOption } from './ng-select.types';
-import { NgSelectComponent, DropdownPosition } from './ng-select.component';
+import { SelectGuruOption } from './ng-select.types';
+import { SelectGuruComponent, DropdownPosition } from './ng-select.component';
 import { ItemsList } from './items-list';
 import { WindowService } from './window.service';
 import { VirtualScrollService } from './virtual-scroll.service';
@@ -53,7 +53,7 @@ const BOTTOM_CSS_CLASS = 'ng-select-bottom';
 })
 export class NgDropdownPanelComponent implements OnInit, OnChanges, OnDestroy, AfterContentInit {
 
-    @Input() items: NgOption[] = [];
+    @Input() items: SelectGuruOption[] = [];
     @Input() position: DropdownPosition = 'auto';
     @Input() appendTo: string;
     @Input() bufferAmount = 4;
@@ -82,7 +82,7 @@ export class NgDropdownPanelComponent implements OnInit, OnChanges, OnDestroy, A
     private _disposeDocumentResizeListener = () => { };
 
     constructor(
-        @Inject(forwardRef(() => NgSelectComponent)) _ngSelect: NgSelectComponent,
+        @Inject(forwardRef(() => SelectGuruComponent)) _ngSelect: SelectGuruComponent,
         private _renderer: Renderer2,
         private _elementRef: ElementRef,
         private _zone: NgZone,
@@ -136,7 +136,7 @@ export class NgDropdownPanelComponent implements OnInit, OnChanges, OnDestroy, A
         })
     }
 
-    scrollInto(item: NgOption) {
+    scrollInto(item: SelectGuruOption) {
         if (!item) {
             return;
         }
@@ -206,7 +206,7 @@ export class NgDropdownPanelComponent implements OnInit, OnChanges, OnDestroy, A
         });
     }
 
-    private _handleItemsChange(items: { previousValue: NgOption[], currentValue: NgOption[] }) {
+    private _handleItemsChange(items: { previousValue: SelectGuruOption[], currentValue: SelectGuruOption[] }) {
         this._scrollToEndFired = false;
         this._previousStart = undefined;
         this._previousEnd = undefined;

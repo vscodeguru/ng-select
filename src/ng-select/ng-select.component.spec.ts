@@ -13,9 +13,9 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { NgSelectModule } from './ng-select.module';
-import { NgSelectComponent } from './ng-select.component';
-import { KeyCode, NgOption } from './ng-select.types';
+import { SelectGuruModule } from './ng-select.module';
+import { SelectGuruComponent } from './ng-select.component';
+import { KeyCode, SelectGuruOption } from './ng-select.types';
 import { Subject } from 'rxjs/Subject';
 import { WindowService } from './window.service';
 import { TestsErrorHandler, tickAndDetectChanges, triggerKeyDownEvent, getNgSelectElement, selectOption } from '../testing/helpers';
@@ -892,7 +892,7 @@ describe('NgSelectComponent', function () {
 
     describe('Keyboard events', () => {
         let fixture: ComponentFixture<NgSelectTestCmp>;
-        let select: NgSelectComponent;
+        let select: SelectGuruComponent;
 
         beforeEach(() => {
             fixture = createTestingModule(
@@ -1133,7 +1133,7 @@ describe('NgSelectComponent', function () {
 
                 expect(fixture.componentInstance.selectedCity.name).toBe('Vilnius');
             }));
-            
+
             it('should mark item using key while opened', fakeAsync(() => {
                 const findByLabel = spyOn(select.itemsList, 'findByLabel');
                 triggerKeyDownEvent(getNgSelectElement(fixture), KeyCode.Space);
@@ -1151,7 +1151,7 @@ describe('NgSelectComponent', function () {
 
     describe('Outside click', () => {
         let fixture: ComponentFixture<NgSelectTestCmp>;
-        let select: NgSelectComponent;
+        let select: SelectGuruComponent;
         beforeEach(() => {
             fixture = createTestingModule(
                 NgSelectTestCmp,
@@ -1462,7 +1462,7 @@ describe('NgSelectComponent', function () {
 
     describe('Multiple', () => {
         let fixture: ComponentFixture<NgSelectTestCmp>;
-        let select: NgSelectComponent;
+        let select: SelectGuruComponent;
         beforeEach(() => {
             fixture = createTestingModule(
                 NgSelectTestCmp,
@@ -1478,18 +1478,18 @@ describe('NgSelectComponent', function () {
             selectOption(fixture, KeyCode.ArrowDown, 1);
             selectOption(fixture, KeyCode.ArrowDown, 2);
             tickAndDetectChanges(fixture);
-            expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
+            expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
         }));
 
         it('should toggle selected item', fakeAsync(() => {
             selectOption(fixture, KeyCode.ArrowDown, 0);
             selectOption(fixture, KeyCode.ArrowDown, 2);
             tickAndDetectChanges(fixture);
-            expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
+            expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
 
             selectOption(fixture, KeyCode.ArrowDown, 1);
             tickAndDetectChanges(fixture);
-            expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(1);
+            expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(1);
             expect(fixture.componentInstance.select.selectedItems[0]).toEqual(jasmine.objectContaining({
                 value: { id: 3, name: 'Pabrade' }
             }));
@@ -1498,9 +1498,9 @@ describe('NgSelectComponent', function () {
         it('should not toggle item on enter when dropdown is closed', () => {
             selectOption(fixture, KeyCode.ArrowDown, 0);
             triggerKeyDownEvent(getNgSelectElement(fixture), KeyCode.Esc);
-            expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(1);
+            expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(1);
             triggerKeyDownEvent(getNgSelectElement(fixture), KeyCode.Enter);
-            expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(1);
+            expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(1);
         });
 
         describe('max selected items', () => {
@@ -1515,7 +1515,7 @@ describe('NgSelectComponent', function () {
                 selectOption(fixture, KeyCode.ArrowDown, 1);
                 selectOption(fixture, KeyCode.ArrowDown, 1);
                 tickAndDetectChanges(fixture);
-                expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
+                expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
             }));
 
             it('should not open dropdown when maximum of items is reached', fakeAsync(() => {
@@ -1526,7 +1526,7 @@ describe('NgSelectComponent', function () {
                 clickArrow();
                 tickAndDetectChanges(fixture);
                 expect(fixture.componentInstance.select.isOpen).toBe(false);
-                expect((<NgOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
+                expect((<SelectGuruOption[]>fixture.componentInstance.select.selectedItems).length).toBe(2);
             }));
         });
 
@@ -2074,7 +2074,7 @@ describe('NgSelectComponent', function () {
 
                 expect(fixture.componentInstance.select.clearSearchOnAdd).toBeFalsy();
                 expect(fixture.componentInstance.select.closeOnSelect).toBeFalsy();
-                    
+
                 fixture.componentInstance.filter.subscribe();
                 fixture.componentInstance.select.filter('new');
                 fixture.componentInstance.cities = [{ id: 4, name: 'New York' }, { id: 5, name: 'California' }];
@@ -2090,7 +2090,7 @@ describe('NgSelectComponent', function () {
 
     describe('Accessability', () => {
         let fixture: ComponentFixture<NgSelectTestCmp>;
-        let select: NgSelectComponent;
+        let select: SelectGuruComponent;
         let input: HTMLInputElement;
 
         beforeEach(fakeAsync(() => {
@@ -2551,7 +2551,7 @@ describe('NgSelectComponent', function () {
 
 function createTestingModule<T>(cmp: Type<T>, template: string): ComponentFixture<T> {
     TestBed.configureTestingModule({
-        imports: [FormsModule, NgSelectModule],
+        imports: [FormsModule, SelectGuruModule],
         declarations: [cmp],
         providers: [
             { provide: ErrorHandler, useClass: TestsErrorHandler },
@@ -2584,7 +2584,7 @@ function createEvent(event) {
     template: ``
 })
 class NgSelectTestCmp {
-    @ViewChild(NgSelectComponent) select: NgSelectComponent;
+    @ViewChild(SelectGuruComponent) select: SelectGuruComponent;
     multiple = false;
     disabled = false;
     dropdownPosition = 'bottom';
@@ -2646,7 +2646,7 @@ class NgSelectTestCmp {
     template: ``
 })
 class NgSelectGroupingTestCmp {
-    @ViewChild(NgSelectComponent) select: NgSelectComponent;
+    @ViewChild(SelectGuruComponent) select: SelectGuruComponent;
     selectedAccountName = 'Adam';
     selectedAccount = null;
     groupByFn = (item) => item.child.name;

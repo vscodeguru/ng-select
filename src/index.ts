@@ -1,3 +1,3 @@
-export { NgSelectComponent, NG_SELECT_DEFAULT_CONFIG } from './ng-select/ng-select.component';
-export { NgSelectModule } from './ng-select/ng-select.module';
-export { NgOption, NgSelectConfig } from './ng-select/ng-select.types';
+export { SelectGuruComponent, SELECT_GURU_DEFAULT_CONFIG } from './ng-select/ng-select.component';
+export { SelectGuruModule } from './ng-select/ng-select.module';
+export { SelectGuruOption, SelectGuruConfig } from './ng-select/ng-select.types';

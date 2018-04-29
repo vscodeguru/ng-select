@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgSelectComponent, NG_SELECT_DEFAULT_CONFIG } from './ng-select.component';
+import { SelectGuruComponent, SELECT_GURU_DEFAULT_CONFIG } from './ng-select.component';
 import {
     NgOptionTemplateDirective,
     NgLabelTemplateDirective,
@@ -13,7 +13,7 @@ import {
     NgMultiLabelTemplateDirective
 } from './ng-templates.directive';
 import { NgOptionComponent } from './ng-option.component';
-import { NgOptionHighlightDirective } from './ng-option-highlight.directive' ;
+import { NgOptionHighlightDirective } from './ng-option-highlight.directive';
 import { NgDropdownPanelComponent } from './ng-dropdown-panel.component';
 import { WindowService } from './window.service';
 import { VirtualScrollService } from './virtual-scroll.service';
@@ -23,7 +23,7 @@ import { ConsoleService } from './console.service';
     declarations: [
         NgDropdownPanelComponent,
         NgOptionComponent,
-        NgSelectComponent,
+        SelectGuruComponent,
         NgOptionHighlightDirective,
         NgOptgroupTemplateDirective,
         NgOptionTemplateDirective,
@@ -39,7 +39,7 @@ import { ConsoleService } from './console.service';
         CommonModule
     ],
     exports: [
-        NgSelectComponent,
+        SelectGuruComponent,
         NgOptionComponent,
         NgOptionHighlightDirective,
         NgOptgroupTemplateDirective,
@@ -57,7 +57,7 @@ import { ConsoleService } from './console.service';
         WindowService,
         VirtualScrollService,
         {
-            provide: NG_SELECT_DEFAULT_CONFIG,
+            provide: SELECT_GURU_DEFAULT_CONFIG,
             useValue: {
                 notFoundText: 'No items found',
                 typeToSearchText: 'Type to search',
@@ -69,4 +69,4 @@ import { ConsoleService } from './console.service';
         }
     ]
 })
-export class NgSelectModule { }
+export class SelectGuruModule { }

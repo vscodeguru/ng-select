@@ -44,13 +44,13 @@ import {
 import { ConsoleService } from './console.service';
 import { isDefined, isFunction, isPromise, isObject } from './value-utils';
 import { ItemsList } from './items-list';
-import { NgOption, KeyCode, NgSelectConfig } from './ng-select.types';
+import { SelectGuruOption, KeyCode, SelectGuruConfig } from './ng-select.types';
 import { newId } from './id';
 import { NgDropdownPanelComponent } from './ng-dropdown-panel.component';
 import { NgOptionComponent } from './ng-option.component';
 import { WindowService } from './window.service';
 
-export const NG_SELECT_DEFAULT_CONFIG = new InjectionToken<NgSelectConfig>('ng-select-default-options');
+export const SELECT_GURU_DEFAULT_CONFIG = new InjectionToken<SelectGuruConfig>('ng-select-default-options');
 export type DropdownPosition = 'bottom' | 'top' | 'auto';
 export type AddTagFn = ((term: string) => any | Promise<any>);
 export type CompareWithFn = (a: any, b: any) => boolean;
@@ -61,7 +61,7 @@ export type CompareWithFn = (a: any, b: any) => boolean;
     styleUrls: ['./ng-select.component.scss'],
     providers: [{
         provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => NgSelectComponent),
+        useExisting: forwardRef(() => SelectGuruComponent),
         multi: true
     }],
     encapsulation: ViewEncapsulation.None,
@@ -72,7 +72,7 @@ export type CompareWithFn = (a: any, b: any) => boolean;
         '[class.ng-select-single]': '!multiple',
     }
 })
-export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, ControlValueAccessor {
+export class SelectGuruComponent implements OnDestroy, OnChanges, AfterViewInit, ControlValueAccessor {
 
     // inputs
     @Input() items: any[] = [];
@@ -145,7 +145,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
     @HostBinding('class.ng-select-filtered') get filtered() { return !!this.filterValue && this.searchable };
 
     itemsList = new ItemsList(this);
-    viewPortItems: NgOption[] = [];
+    viewPortItems: SelectGuruOption[] = [];
     filterValue: string = null;
     dropdownId = newId();
     selectedItemId = 0;
@@ -157,7 +157,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
 
     private readonly _destroy$ = new Subject<void>();
     private readonly _keyPress$ = new Subject<string>();
-    private _onChange = (_: NgOption) => { };
+    private _onChange = (_: SelectGuruOption) => { };
     private _onTouched = () => { };
 
     clearItem = (item: any) => {
@@ -166,7 +166,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
     };
 
     constructor(
-        @Inject(NG_SELECT_DEFAULT_CONFIG) config: NgSelectConfig,
+        @Inject(SELECT_GURU_DEFAULT_CONFIG) config: SelectGuruConfig,
         @Attribute('class') public classes: string,
         private _cd: ChangeDetectorRef,
         private _console: ConsoleService,
@@ -177,7 +177,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         this._mergeGlobalConfig(config);
     }
 
-    get selectedItems(): NgOption[] {
+    get selectedItems(): SelectGuruOption[] {
         return this.itemsList.value;
     }
 
@@ -347,7 +347,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         this._cd.markForCheck();
     }
 
-    toggleItem(item: NgOption) {
+    toggleItem(item: SelectGuruOption) {
         if (!item || item.disabled || this.isDisabled) {
             return;
         }
@@ -359,7 +359,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         }
     }
 
-    select(item: NgOption) {
+    select(item: SelectGuruOption) {
         this.itemsList.select(item);
 
         if (this.clearSearchOnAdd) {
@@ -385,7 +385,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         });
     }
 
-    unselect(item: NgOption) {
+    unselect(item: SelectGuruOption) {
         this.itemsList.unselect(item);
         this._updateNgModel();
         this.removeEvent.emit(item);
@@ -455,7 +455,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         }
     }
 
-    onItemHover(item: NgOption) {
+    onItemHover(item: SelectGuruOption) {
         if (item.disabled) {
             return;
         }
@@ -585,7 +585,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         if (this.searchable) {
             return;
         }
-        
+
         this._keyPress$
             .pipe(takeUntil(this._destroy$),
                 tap(letter => this._pressedKeys.push(letter)),
@@ -746,7 +746,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         return this.typeahead && this.typeahead.observers.length > 0;
     }
 
-    private _mergeGlobalConfig(config: NgSelectConfig) {
+    private _mergeGlobalConfig(config: SelectGuruConfig) {
         this.notFoundText = this.notFoundText || config.notFoundText;
         this.typeToSearchText = this.typeToSearchText || config.typeToSearchText;
         this.addTagText = this.addTagText || config.addTagText;

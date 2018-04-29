@@ -1,4 +1,4 @@
-export interface NgOption {
+export interface SelectGuruOption {
     [name: string]: any;
     index?: number;
     htmlId?: string;
@@ -7,7 +7,7 @@ export interface NgOption {
     marked?: boolean;
     label?: string;
     value?: string | Object;
-    parent?: NgOption;
+    parent?: SelectGuruOption;
     hasChildren?: boolean;
 }
 
@@ -21,7 +21,7 @@ export enum KeyCode {
     Backspace = 8
 }
 
-export interface NgSelectConfig {
+export interface SelectGuruConfig {
     notFoundText?: string;
     typeToSearchText?: string;
     addTagText?: string;
