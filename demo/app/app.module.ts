@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { NgSelectModule, NG_SELECT_DEFAULT_CONFIG } from '@ng-select/ng-select';
+import { SelectGuruModule, SELECT_GURU_DEFAULT_CONFIG } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -41,6 +41,7 @@ export const appRoutes: Routes = [
     { path: 'events', component: SelectEventsComponent, data: { title: 'Output events', fileName: 'events.component.ts' } },
     // tslint:disable-next-line:max-line-length
     { path: 'virtual-scroll', component: VirtualScrollComponent, data: { title: 'Virtual scroll', fileName: 'virtual-scroll.component.ts' } },
+    // tslint:disable-next-line:max-line-length
     { path: 'dropdown-position', component: DropdownPositionsComponent, data: { title: 'Dropdown position', fileName: 'dropdown-positions.component.ts' } },
     // tslint:disable-next-line:max-line-length
     { path: 'append-to-element', component: AppendToComponent, data: { title: 'Append to element', fileName: 'append-to.component.ts' } },
@@ -50,7 +51,7 @@ export const appRoutes: Routes = [
 @NgModule({
     imports: [
         BrowserModule,
-        NgSelectModule,
+        SelectGuruModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
@@ -66,7 +67,7 @@ export const appRoutes: Routes = [
     providers: [
         DataService,
         {
-            provide: NG_SELECT_DEFAULT_CONFIG,
+            provide: SELECT_GURU_DEFAULT_CONFIG,
             useValue: {
                 notFoundText: 'Items not found',
                 addTagText: 'Add item',

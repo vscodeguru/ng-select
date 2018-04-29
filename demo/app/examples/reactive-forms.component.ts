@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgOption } from '@ng-select/ng-select';
+import { SelectGuruOption } from '@systemic/select-guru';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from '../shared/data.service';
-import { NgSelectComponent } from '../../../src/ng-select/ng-select.component';
+import { SelectGuruComponent } from '../../../src/ng-select/ng-select.component';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -170,14 +170,14 @@ export class ReactiveFormsComponent {
     heroForm: FormGroup;
 
     isCitiesControlVisible = true;
-    cities: NgOption[] = [
+    cities: SelectGuruOption[] = [
         { id: 1, name: 'Vilnius' },
         { id: 2, name: 'Kaunas' },
         { id: 3, name: 'Pavilnys (Disabled)', disabled: true },
         { id: 4, name: 'Pabradė' },
     ];
 
-    ages: NgOption[] = [
+    ages: SelectGuruOption[] = [
         { value: '<18', label: 'Under 18' },
         { value: '18', label: '18' },
         { value: '>18', label: 'More than 18' },
@@ -205,11 +205,11 @@ export class ReactiveFormsComponent {
         });
     }
 
-    openSelect(select: NgSelectComponent) {
+    openSelect(select: SelectGuruComponent) {
         select.open();
     }
 
-    closeSelect(select: NgSelectComponent) {
+    closeSelect(select: SelectGuruComponent) {
         select.close();
     }
 
@@ -294,12 +294,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ConfirmationComponent {
 
-  constructor(
-      public activeModal: NgbActiveModal,
-  ) {}
+    constructor(
+        public activeModal: NgbActiveModal,
+    ) { }
 
-  clear() {
-    this.activeModal.close();
-  }
+    clear() {
+        this.activeModal.close();
+    }
 
 }
